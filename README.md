@@ -30,6 +30,8 @@ Launch jar file:
 ```cmd
 java -jar pm-hw-docker-0.0.1-SNAPSHOT.jar
 ```
+Browser check:
+[localhost:8080](http://localhost:8080)
 ## Instalation and running (docker)
 ___
 Clone image:
@@ -58,6 +60,8 @@ services:
     ports:
       - 8080:8080
 ```
+Browser check:
+[localhost:8080](http://localhost:8080)
 ### Reference
 ___
 + [My GitHub](https://github.com/swat121)
