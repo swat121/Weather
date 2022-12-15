@@ -17,9 +17,7 @@ public class WeatherService {
     private final UrlConfig urlConfig;
 
     public DataResponse getDataResponse() {
-        System.out.println("===========    "+ urlConfig.getCountryName());
         URI uri = URI.create(url).resolve(String.format("weather?q=%s&units=%s&appid=%s", urlConfig.getCountryName(), urlConfig.getUnits(), urlConfig.getId()));
-        System.out.println(uri.toString()+ " ------------------------------------");
         return getFromUrl(uri.toString(), DataResponse.class);
     }
 
