@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .format{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="format">
+    <h2 th:text="${countryName}"></h2>
+</div>
+<div class="format" th:each="el:${data}">
+        <span th:text="${el.key}"></span> =
+        <span th:text="${el.value}"></span>
+</div>
+
+</body>
+</html>
