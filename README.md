@@ -18,7 +18,7 @@ ___
 ___
 Clone repository:
 ```cmd
-git clone https://gitlab.com/swat1211/pm-hw-docker.git
+git clone https://git.java-academy.xyz/swat121/pm-hw-docker.git
 cd pm-hw-docker
 ```
 Build project:
