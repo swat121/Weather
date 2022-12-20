@@ -1,4 +1,3 @@
 service:
-  countryName: ${countryName}
   id: ${id}
   units: ${units}
