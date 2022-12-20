@@ -10,12 +10,12 @@
     </style>
 </head>
 <body>
-<div class="format">
-    <h2 th:text="${countryName}"></h2>
-</div>
-<div class="format" th:each="el:${data}">
-    <span th:text="${el.key}"></span> =
-    <span th:text="${el.value}"></span>
+<div class="format" th:each="city:${data}">
+    <h2 th:text="${city.key}"></h2>
+    <div th:each="main:${city.value}">
+        <span th:text="${main.key}"></span> =
+        <span th:text="${main.value}"></span>
+    </div>
 </div>
 
 </body>

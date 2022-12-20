@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>City</title>
-    <style>
-        .format {
-            text-align: center;
-        }
-    </style>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
 </head>
 <body>
 <div class="format">
-    <form method="post" th:action="@{/}" th:object="${dataResponse}">
-        <input id="countryName" required type="text" th:field="*{name}" placeholder="Введіть назву продукта"><br>
-        <button type="submit">Пошук</button>
+    <form  method="post" th:action="@{/}" th:object="${dataResponse}">
+        <input id="countryName" required type="text" th:field="*{name}" placeholder="Enter the name of the city"><br>
+        <button class="form-submit-button" type="submit">Add city</button>
+        <button onclick="document.location='/city'" type="button" class="form-submit-button" >View cities</button>
     </form>
+
 </div>
 
 </body>
