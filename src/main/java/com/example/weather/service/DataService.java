@@ -19,4 +19,8 @@ public class DataService {
     public List<City> findAllByIpAddress(String ipAddress) {
         return cityRepository.findAllByIpAddress(ipAddress);
     }
+
+    public void deleteCity(String countryName, String clientIp) {
+        cityRepository.deleteCityByCountryNameAndIpAddress(countryName, clientIp);
+    }
 }

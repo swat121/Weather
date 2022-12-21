@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>City</title>
-    <style>
-        .format {
-            text-align: center;
-        }
-    </style>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
 </head>
 <body>
+<div class="button-div">
+    <a th:href="@{/}"><button type="button" class="form-submit-button" ><b>Add city</b></button></a>
+</div>
 <div class="format" th:each="city:${data}">
     <h2 th:text="${city.key}"></h2>
     <div th:each="main:${city.value}">
         <span th:text="${main.key}"></span> =
         <span th:text="${main.value}"></span>
     </div>
+        <p></p>
+    <a th:href="@{/city/delete(countryName=${city.key})}"><button type="button" class="form-delete-button" ><b>Delete city</b></button></a>
 </div>
 
 </body>
