@@ -23,4 +23,7 @@ public class DataService {
     public void deleteCity(String countryName, String clientIp) {
         cityRepository.deleteCityByCountryNameAndIpAddress(countryName, clientIp);
     }
+    public List<City> findAll(){
+        return cityRepository.findAll();
+    }
 }
