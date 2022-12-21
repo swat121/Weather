@@ -15,17 +15,10 @@ public class WeatherService {
     private final String url = "https://api.openweathermap.org/data/2.5/";
     private final UrlConfig urlConfig;
 
-    public void setCountryName(String countryName) {
-        urlConfig.setCountryName(countryName);
-    }
 
     public DataResponse getDataResponse(String countryName) {
         URI uri = URI.create(url).resolve(String.format("weather?q=%s&units=%s&appid=%s", countryName, urlConfig.getUnits(), urlConfig.getId()));
         return getFromUrl(uri.toString(), DataResponse.class);
-    }
-
-    public String getCountyName() {
-        return urlConfig.getCountryName();
     }
 
     private <T> T getFromUrl(String url, Class<T> responseType) {

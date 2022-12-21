@@ -20,7 +20,7 @@ public class RequestController {
     private final WebUtil webUtil;
 
     @RequestMapping("/city/json")
-    public DataResponse getCityByName(@RequestParam(value="countryName", required=false, defaultValue="Dnipro") String countryName){
+    public DataResponse getCityByName(@RequestParam(value = "countryName", required = false, defaultValue = "Dnipro") String countryName) {
         return new DataResponse(countryName, weatherService.getDataResponse(countryName).getMain());
     }
 

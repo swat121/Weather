@@ -16,8 +16,8 @@ import java.util.List;
 public interface CityRepository extends JpaRepository<City, Long> {
     List<City> findAllByIpAddress(String addressIp);
 
-    @Transactional
     @Modifying
+    @Transactional
     @Query(value="DELETE FROM City  WHERE  country_name =?1 AND ip_address =?2", nativeQuery = true)
     void deleteCityByCountryNameAndIpAddress(String countryName, String ipAddress);
 }
