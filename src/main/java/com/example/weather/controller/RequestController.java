@@ -21,7 +21,7 @@ public class RequestController {
 
     @RequestMapping("/city/json")
     public DataResponse getCityByName(@RequestParam(value = "countryName", required = false, defaultValue = "Dnipro") String countryName) {
-        return new DataResponse(countryName, weatherService.getDataResponse(countryName).getMain());
+        return new DataResponse(weatherService.getDataResponse(countryName).getCod(), countryName, weatherService.getDataResponse(countryName).getMain());
     }
 
     @RequestMapping("/user")

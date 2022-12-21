@@ -42,6 +42,9 @@ public class WeatherController {
 
     @PostMapping("/")
     public String findProduct(@ModelAttribute("dataResponse") DataResponse dataResponse) {
+        if (service.getDataResponse(dataResponse.getName()).getCod().equals("404")) {
+            return "error";
+        }
         City city = new City();
         city.setCountryName(dataResponse.getName());
         city.setIpAddress(webUtil.getClientIp());
