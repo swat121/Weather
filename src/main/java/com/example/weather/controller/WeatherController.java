@@ -45,6 +45,9 @@ public class WeatherController {
         if (service.getDataResponse(dataResponse.getName()).getCod().equals("404")) {
             return "error";
         }
+        if (dataService.isCityPresent(dataResponse.getName(), webUtil.getClientIp())) {
+            return "errorCityIsPresent";
+        }
         City city = new City();
         city.setCountryName(dataResponse.getName());
         city.setIpAddress(webUtil.getClientIp());

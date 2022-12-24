@@ -23,7 +23,19 @@ public class DataService {
     public void deleteCity(String countryName, String clientIp) {
         cityRepository.deleteCityByCountryNameAndIpAddress(countryName, clientIp);
     }
-    public List<City> findAll(){
+
+    public List<City> findAll() {
         return cityRepository.findAll();
+    }
+
+    public boolean isCityPresent(String countryName, String ipAddress) {
+        List<City> cities = cityRepository.findAllByIpAddress(ipAddress);
+        if (cities.isEmpty()){
+            return false;
+        }
+        if (cities.stream().anyMatch(city -> city.getCountryName().equals(countryName))) {
+            return true;
+        }
+        return false;
     }
 }
