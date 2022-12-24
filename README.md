@@ -136,6 +136,13 @@ services:
       Password: postres
     ports:
       - 8080:8080
+  postres:
+    image: postgres:13.3
+    container_name: postgreSQL
+    environment:
+        POSTGRES_DB: mydatabase
+        POSTGRES_USER: postres
+        POSTGRES_PASSWORD: postres
 ```
 Browser check:
 [localhost:8080](http://localhost:8080)
