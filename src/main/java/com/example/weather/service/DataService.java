@@ -26,4 +26,14 @@ public class DataService {
     public List<City> findAll(){
         return cityRepository.findAll();
     }
+    public boolean isCityPresent(String countryName, String ipAddress) {
+        List<City> cities = cityRepository.findAllByIpAddress(ipAddress);
+        if (cities.isEmpty()) {
+            return false;
+        }
+        if (cities.stream().anyMatch(city -> city.getCountryName().equals(countryName))) {
+            return true;
+        }
+        return false;
+    }
 }
