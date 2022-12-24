@@ -116,6 +116,7 @@ Create container, you can use docker-compose or command line for environment var
 
 **command line**
 ```docker
+docker run -e POSTGRES_DB=mydatabase -e POSTGRES_USER=postres -e POSTGRES_PASSWORD=postgres -d postgres:13.3
 docker run -p 8080:8080 -e ID=yourID -e UNITS=yourUnits -e HOST=localhost -e PORT=5432 -e DATABASE=mydatabase -e USER=postres -e PASSWORD=postres -d swat121/weather:tagname
 ```
 **docker-compose**
