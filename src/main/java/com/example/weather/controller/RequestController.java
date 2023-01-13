@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @AllArgsConstructor
@@ -19,18 +21,23 @@ public class RequestController {
     private final DataService dataService;
     private final WebUtil webUtil;
 
-    @RequestMapping("/city/json")
-    public DataResponse getCityByName(@RequestParam(value = "countryName", required = false, defaultValue = "Dnipro") String countryName) {
+    @RequestMapping("/city")
+    public DataResponse getCityByName(@RequestParam(value = "name", required = false, defaultValue = "Dnipro") String countryName) {
         return new DataResponse(weatherService.getDataResponse(countryName).getCod(), countryName, weatherService.getDataResponse(countryName).getMain());
     }
 
     @RequestMapping("/user")
-    public List<City> getData() {
+    public List<City> getDataOfUser() {
         return dataService.findAllByIpAddress(webUtil.getClientIp());
     }
 
-    @RequestMapping("/user/all")
-    public List<City> getAllData() {
-        return dataService.findAll();
+    @RequestMapping("/user/city")
+    public List<City> getCityOfUser(@RequestParam(value = "name", required = false, defaultValue = "Dnipro") String countryName) {
+        return dataService.findAllByIpAddress(webUtil.getClientIp());
+    }
+
+    @RequestMapping("/users")
+    public List<City> getDataOfUsers() {
+        return dataService.findAll().stream().sorted(Comparator.comparing(City::getIpAddress)).collect(Collectors.toList());
     }
 }
