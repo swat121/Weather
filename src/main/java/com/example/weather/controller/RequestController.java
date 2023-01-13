@@ -21,22 +21,22 @@ public class RequestController {
     private final DataService dataService;
     private final WebUtil webUtil;
 
-    @RequestMapping("/city")
+    @RequestMapping("/api/city")
     public DataResponse getCityByName(@RequestParam(value = "name", required = false, defaultValue = "Dnipro") String countryName) {
         return new DataResponse(weatherService.getDataResponse(countryName).getCod(), countryName, weatherService.getDataResponse(countryName).getMain());
     }
 
-    @RequestMapping("/user")
+    @RequestMapping("/api/user")
     public List<City> getDataOfUser() {
         return dataService.findAllByIpAddress(webUtil.getClientIp());
     }
 
-    @RequestMapping("/user/city")
-    public List<City> getCityOfUser(@RequestParam(value = "name", required = false, defaultValue = "Dnipro") String countryName) {
+    @RequestMapping("/api/user/city")
+    public List<City> getCityOfUser() {
         return dataService.findAllByIpAddress(webUtil.getClientIp());
     }
 
-    @RequestMapping("/users")
+    @RequestMapping("/api/users")
     public List<City> getDataOfUsers() {
         return dataService.findAll().stream().sorted(Comparator.comparing(City::getIpAddress)).collect(Collectors.toList());
     }
