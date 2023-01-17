@@ -23,7 +23,7 @@ public class WeatherController {
     private final DataService dataService;
     private final WebUtil webUtil;
 
-    @GetMapping("/city")
+    @GetMapping(EndPoints.CITY)
     public String getTemperature(Model model) {
         List<City> cities = dataService.findAllByIpAddress(webUtil.getClientIp());
         HashMap<String, HashMap<String, String>> main = new HashMap<>();
@@ -55,7 +55,7 @@ public class WeatherController {
         return "redirect:/city";
     }
 
-    @GetMapping("/city/delete")
+    @GetMapping(EndPoints.CITY_DELETE)
     public String deleteCity(@RequestParam String countryName){
         dataService.deleteCity(countryName, webUtil.getClientIp());
         return "redirect:/city";
