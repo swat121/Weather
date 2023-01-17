@@ -31,11 +31,6 @@ public class RequestController {
         return dataService.findAllByIpAddress(webUtil.getClientIp());
     }
 
-    @RequestMapping(EndPoints.API_USER_CITY)
-    public List<City> getCityOfUser() {
-        return dataService.findAllByIpAddress(webUtil.getClientIp());
-    }
-
     @RequestMapping(EndPoints.API_USERS)
     public List<City> getDataOfUsers() {
         return dataService.findAll().stream().sorted(Comparator.comparing(City::getIpAddress)).collect(Collectors.toList());
