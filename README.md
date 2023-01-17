@@ -2,68 +2,43 @@
 ___
 This is a service for getting weather data for a specific city and storing the list of cities in a database for reuse. Powered by OpenWeatherMapApi service and PostgreSQL database.
 
-HTTP-methods you can use:
+## EndPoints:
+___
 
-Expect result: `receive JSON response with cod 200 and info about default city`
 ```http request
-GET    http://localhost:8080/city/json
+GET     /api/city?name=Dnipro,ua
 ```
-```json
-{
-    "cod": "200",
-    "name": "Dnipro",
-    "main": {
-        "temp": "0.7",
-        "temp_min": "0.7",
-        "grnd_level": "1006",
-        "humidity": "84",
-        "pressure": "1023",
-        "sea_level": "1023",
-        "feels_like": "-2.92",
-        "temp_max": "0.7"
-    }
-}
+Expect result: `receive JSON response with cod 200 and info about city by name`
+```http request
+GET    /api/city
 ```
 Expect result: `info about your added cities`
 ```http request
-GET    http://localhost:8080/city
+GET    /api/user
+```
+Expect result: `info about your added cities`
+```http request
+GET    /api/users
+```
+Expect result: `info about all users`
+```http request
+GET    /
 ```
 Expect result: `show "add" city page`
 ```http request
-GET    http://localhost:8080/
+GET    /city/delete?counrtyName=${counrtyName}
 ```
 Expect result: `delete the specified city`
 ```http request
-GET    http://localhost:8080/city/delete?counrtyName=${counrtyName}
+GET    /user
 ```
 Expect result: `receive JSON response with all cities by your ip`
 ```http request
-GET    http://localhost:8080/user
+POST   /?counrtyName=${counrtyName}
 ```
-Example:
-```json
-[
-    {
-        "id": 12,
-        "countryName": "Dnipro,ua",
-        "ipAddress": "Your Ip"
-    },
-    {
-        "id": 13,
-        "countryName": "Kyiv,ua",
-        "ipAddress": "Your Ip"
-    },
-    {
-        "id": 14,
-        "countryName": "Lviv,ua",
-        "ipAddress": "Your Ip"
-    }
-]
-```
-Expect result: `add city in your list`
-```http request
-POST   http://localhost:8080/?counrtyName=${counrtyName}
-```
+Expect result: `add city in your list`  
+## Properties:
+___
 *Example* application.yaml:
 ```yaml
 service:
@@ -84,9 +59,9 @@ spring.jpa.hibernate.ddl-auto=update
 
 ## Requirements
 ___
-* java 11.0.15
-* maven 3.8.4
-* spring-boot 2.6.0
+* `java` 11.0.15
+* `maven` 3.8.4
+* `spring-boot` 2.6.0
 ## Installation and running (git)
 ___
 Clone repository:
