@@ -56,7 +56,7 @@ public class WeatherController {
     }
 
     @GetMapping(EndPoints.CITY_DELETE)
-    public String deleteCity(@RequestParam String countryName){
+    public String deleteCity(@RequestParam String countryName) {
         dataService.deleteCity(countryName, webUtil.getClientIp());
         return "redirect:/city";
     }

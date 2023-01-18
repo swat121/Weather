@@ -8,8 +8,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 @SpringBootApplication
 @EnableConfigurationProperties({UrlConfig.class})
 public class WeatherApplication {
-	public static void main(String[] args) {
-		SpringApplication.run(WeatherApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(WeatherApplication.class, args);
+    }
 
 }
